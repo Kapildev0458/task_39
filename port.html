@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta http-equiv="Cache-control" content="public">
+    <title> DOCKER WORLD</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+    
+<body style="text-align: center;padding-top: 20PX;background-image: url(https://papercut.wpengine.com/wp-content/uploads/2019/02/docker-logo-1024x597.png);">
+    <i><h1 style="font-size: 40px";>DOCKER WORLD</h1></i>
+<div>
+    <form>
+            <h2>LAUNCH CONTAINER</h2>
+    ENTER IMAGE NAME  <br/><br/> <input id="i1" type="text"  name="x" required/><br/><br/>
+    ENTER CONTAINER NAME  <br/><br/> <input id="i2" type="text"  name="y" required/><br/><br/>
+    <input onclick="my();cgi();" type="submit"/>
+    </form>
+    <form>
+   <h1 style="color: black;">DOCKER LIVE TERMINAL</h1>
+<strong>[docker@root]#</strong><input id="doc" type="text" name="z"/><br/><br/>
+<input onclick="docker();" type="submit"/><br/><br/>
+</form>
+<article>Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.<br> Containers are isolated from one another and bundle their own software, libraries and configuration files <br> 👉docker images ===> SEE IMAGES<br>
+    👉docker ps ===>CHECK CONTAINER<br>
+    👉docker run ===>LAUNCH CONTAINER<br>
+    👉docker rm -f ===>REMOVE CONTAINER<br>
+    👉docker exec ===>EXECUTE CONTAINER</article>
+</div>
+<script>
+    function my() {
+
+        x=document.getElementById("i1")
+        y=document.getElementById("i2")
+        a=x.value
+        b=y.value
+        alert("Image Name You Enter : " +a)
+        alert("Container Name You Enter : " +b )
+
+
+
+    }
+     function cgi() {
+         var img=document.getElementById("i1").value
+         var cont=document.getElementById("i2").value
+        var xhr=new XMLHttpRequest();
+        xhr.open("GET","http://13.235.86.220/cgi-bin/port.py?x="+img+"&y="+cont,false)
+        xhr.send()
+        var output1=xhr.responseText
+      
+        alert("!...output...!"+"\n"+output1)    
+   
+     }
+     function docker() {
+         var cmdval=document.getElementById("doc").value
+        var xhr=new XMLHttpRequest();
+        xhr.open("GET","http://13.235.86.220/cgi-bin/p.py?z="+cmdval,false)
+        xhr.send()
+        var output2=xhr.responseText
+        alert("!...output...!"+"\n"+output2)
+     }
+     
+
+</script>   
+</body>
+</html>
